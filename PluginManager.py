@@ -1,4 +1,4 @@
-import os
+import os, sys
 import importlib
 import threading
 import inspect
@@ -76,7 +76,7 @@ def loadPlugins():
             print("Loaded plugin", pluginClass.__module__.replace("Plugins.","",1) + "." + pluginClass.__name__)
         except Exception as e:
             print("Error while loading", pluginClass.__name__)
-            print(e)
-
+            print('Error on line {}'.format(sys.exc_info()[-1].tb_lineno), type(e).__name__, e)
+            
 def callHooks(client, packet):
     packetHook.callHooks(client, packet)

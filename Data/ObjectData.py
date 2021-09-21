@@ -20,4 +20,4 @@ class ObjectData:
         return ObjectData(self.objectType, self.status.clone())
 
     def __str__(self):
-        return "ObjectType: {}\nStatus: \n{}".format(self.objectType, self.status)
+        return f"ObjectData\nObjectType: {self.objectType}\nStatus: {self.status}"

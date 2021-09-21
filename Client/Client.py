@@ -323,8 +323,7 @@ class Client:
         self.random.setSeed(packet.fp)
 
     def onFailure(self, packet):
-        print("Error:", packet.errorId)
-        print(packet.errorDescription)
+        print(f"Error id: {packet.errorId}\nDescription: {packet.errorDescription}")
         if packet.errorDescription == "s.update_client":
             self.disconnect()
         elif packet.errorDescription == "Account credentials not valid":
