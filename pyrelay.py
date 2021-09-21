@@ -20,7 +20,12 @@ parser.add_argument("-s", "--servers", action="store_true", help="Update the ser
 parser.add_argument("--no-update", action="store_true", help="Don't check for new a RotMG update")
 parser.add_argument("--force-update", action="store_true", help="Force update RotMG resources")
 
+parser.add_argument('--email', dest='email', help='Account email')
+parser.add_argument('--password', dest='passw', help='Account password')
+parser.add_argument('--server', dest='server',default='USSouth3', help='Server to connect')
+
 args = parser.parse_args()
+
 ##if not args.no_update:
 ##    print("Checking for updates...")
 ##    if os.path.exists(VERSION_PATH) and not args.force_update:
@@ -48,14 +53,24 @@ args = parser.parse_args()
 ##        with open(EQUIP_PATH, "w") as file:
 ##            file.write(t.text)
 
-accounts = []
-try:
-    with open("Accounts.json", "r", encoding='utf-8') as file:
-        accounts = json.load(file)
-except IOError:
-    print("Missing Accounts.json file")
-    exit(1)
-    
+
+if args.email and args.passw:
+    accounts=[
+        {
+            'alias': 'Args account',
+            'guid': args.email,
+            'password': args.passw,
+            'server': args.server
+        }
+    ]
+else:
+    accounts = []
+    try:
+        with open("Accounts.json", "r", encoding='utf-8') as file:
+            accounts = json.load(file)
+    except IOError:
+        print("Missing Accounts.json file")
+        exit(1)
 ##if not os.path.exists(EQUIP_PATH):
 ##    print("The file \"equip.xml\" does not exist, to create it run \"pyrelay.py --force-update\"")
 ##    print()
