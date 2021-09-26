@@ -9,6 +9,7 @@ from .ChangeTradePacket import *
 from .CheckCreditsPacket import *
 from .ChooseNamePacket import *
 from .CreateGuildPacket import *
+from .ClaimDailyRewardMessagePacket import *
 from .CreatePacket import *
 from .EditAccountListPacket import *
 from .EnemyHitPacket import *
