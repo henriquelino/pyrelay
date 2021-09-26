@@ -29,7 +29,7 @@ class WorldPosData:
         return self.squareDist(other)**0.5
 
     def __str__(self):
-        return "{}, {}".format(round(self.x, 2), round(self.y, 2))
+        return f"{round(self.x, 2)}x, {round(self.y, 2)}y"
 
     def __add__(self, other):
         pos = self.clone()

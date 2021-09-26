@@ -41,7 +41,7 @@ class StatData:
 
     def __str__(self):
         if self.isStringStat():
-            return f"statType: {self.statType}\nstrStatValue: {self.strStatValue}\nsecondaryValue: {self.secondaryValue}"
+            return f"strStatValue  : '{self.strStatValue}' - statType: '{self.statType} ({self.statToName()})'\nsecondaryValue: '{self.secondaryValue}'"
         else:
-            return f"statType: {self.statType}\nstatValue: {self.statValue}\nsecondaryValue: {self.secondaryValue}"
+            return f"statValue     : '{self.statValue}' - statType: '{self.statType} ({self.statToName()})'\nsecondaryValue: '{self.secondaryValue}'"
 
