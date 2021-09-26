@@ -9,5 +9,5 @@ class ClaimDailyRewardMessagePacket:
         writer.writeStr(self.claimType)
 
     def read(self, reader):
-        self.petId = reader.readStr()
-        self.skinType = reader.readStr()
+        self.claimKey = reader.readStr()
+        self.claimType = reader.readStr()
