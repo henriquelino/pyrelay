@@ -1,0 +1,2 @@
+python pyrelay.py
+pause

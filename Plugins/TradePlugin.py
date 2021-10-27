@@ -82,7 +82,7 @@ class TradePlugin:
                             
             #/tell <bot_name> start trade
             # will make the bot request trade to you
-            if packet.text.lower() == "start trade":
+            if packet.text.lower() == "trade":
                 print(f"Requesting trade to {self.owner}")
                 packet_created = CreatePacket("REQUESTTRADE")
                 packet_created.name = self.owner
@@ -95,7 +95,8 @@ class TradePlugin:
             if packet.text.lower()[:4] == "give":
                 items = packet.text.replace('give ', '') # remove the command
                 items = items.split(' ') # get a list of items split by space ' '
-                
+                if items[0] == 'all':
+                    items = list(range(16))
                 # iterate over items and change the status
                 for item in items:
                     item=int(item)+4 # 4 first are equips, ignore them
